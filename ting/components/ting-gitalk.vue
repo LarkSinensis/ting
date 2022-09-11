@@ -1,5 +1,5 @@
 <template>
-    <div id="gitalk-container">
+    <div v-if="ifshow" id="gitalk-container">
     </div>
 </template>
 <script>
@@ -9,7 +9,7 @@
     export default {
         data() {
             return {
-                ifshow: true
+                ifshow: false
         }
         },
         mounted() {

@@ -1,10 +1,13 @@
 <template>
   <div class="global-layout">
-    <ting-bg/>
+    <ting-bg />
     <loading v-show="isloading" />
-    <div id="top"></div>
-    <component :is="layout" />
-    <ting-live2d />
+    <div :class="!isloading?'show':'hide'">
+      <div id="top"></div>
+      <component :is="layout" />
+      <ting-live2d />
+    </div>
+    <h6 style="position: fixed;bottom: 0;text-align: center;width: 100%;margin: 10px 0;">备案号：粤ICP备2022105528号-1</h6>
   </div>
 </template>
 
@@ -21,7 +24,9 @@ export default {
   },
   methods: {},
   mounted() {
-    this.isloading = false;
+    setTimeout(() => {
+      this.isloading = false;
+    }, 2000);
   },
   components: {
     loading,
